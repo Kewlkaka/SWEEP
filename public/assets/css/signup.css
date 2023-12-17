@@ -1,0 +1,101 @@
+.signupContainer {
+    overflow-y: hidden;
+    padding: 65px 19px 0px 29px;
+    background-color: white;
+}
+
+.signupContainerGrid__items {
+    background-color: var(--colorModal);
+    border-radius: 36px;
+    display: grid;
+    grid-template-columns: 472px 1fr 0.35fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "imgHolder formHolder ...";
+}
+
+.signupImageContainer {
+    grid-area: imgHolder;
+    height: 681px;
+    width: 500px;
+}
+
+.signupImage {
+    border-top-left-radius: 36px;
+    border-bottom-left-radius: 36px;
+    height: 661px;
+    width: 500px;
+    top: 20%;
+    object-fit: cover;
+}
+
+.signupFormContainer {
+    grid-area: formHolder;
+    display: flex;
+    flex-direction: column;
+    padding: 37px 0px 0px 36px;
+    margin-left: 36px;
+}
+
+.signupForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.signupHeading {
+    font-size: 38px;
+}
+
+.signupSubtitle {
+    font-size: 22px;
+    color: #6C6A6A;
+}
+
+.signInLink {
+    color: black;
+}
+
+.signupLabel {
+    font-weight: 600;
+    font-size: 22px;
+    padding-top: 41px;
+    padding-bottom: 20px;
+}
+
+.signupInput {
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid black;
+    font-size: 18px;
+}
+
+.signupInputTextArea {
+    background-color: transparent;
+    border: 3px solid black;
+    font-size: 18px;
+}
+
+.signupBtn {
+    justify-self: flex-end;
+    align-self: flex-end;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 16px;
+    font-size: 28px;
+    width: 111px;
+    margin-top: 20px;
+}
+
+.btnContainer {
+    grid-area: btnDiv;
+    display: flex;
+    justify-content: flex-end
+}
+
+.signupBtn:hover,
+.gsBtn:hover {
+    background-color: var(--colorYellow);
+    color: var(--colorText);
+    transition: 0.3s ease;
+}

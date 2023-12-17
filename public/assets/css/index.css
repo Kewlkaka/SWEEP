@@ -1,0 +1,53 @@
+@import 'base.css';
+@import 'signup.css';
+
+.main {
+    overflow-y: hidden;
+    padding: 65px 0px 0px 80px;
+    color: white;
+    background-color: var(--colorBg);
+}
+.section1 {
+    display: flex;
+}
+
+.yellowSpan:hover {
+    color: var(--colorYellow);
+    transition: 0.2s ease;
+}
+
+.section1__img-container {
+    width: 498px;
+    height: 624px;
+    margin-inline-end: 20px;
+    border: 5px solid var(--colorYellow);
+}
+
+.section1 img{
+    width: 498px;
+    height: 624px;
+    object-fit: cover;
+}
+
+.section1__heading {
+    font-size: 120px;
+    width: 885px;
+    color: black;
+}
+
+.learnMoreBtn,
+.gsBtn {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 16px;
+    font-size: 28px;
+    margin-inline-end: 36px;
+}
+
+.learnMoreBtn:hover,
+.gsBtn:hover {
+    background-color: var(--colorYellow);
+    color: var(--colorText);
+    transition: 0.3s ease;
+}
