@@ -27,6 +27,7 @@
         </nav>
     </header>
     {{ $slot }}
+    <script src="{{ asset('assets/js/signup.js') }}"></script>
 </body>
 
 </html>

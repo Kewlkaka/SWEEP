@@ -1,6 +1,11 @@
 <?php
 
+use App\Models\Student;
+use App\Models\Organization;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\OrganizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +30,7 @@ Route::get('/signUp', function() {
 Route::get('/dashboard', function() {
     return view('users.dashboard');
 });
+
+Route::post('/create-student', [StudentController::class, 'create']);
+Route::post('/create-employee', [EmployeeController::class, 'create']);
+Route::post('/create-organization', [OrganizationController::class, 'create']);

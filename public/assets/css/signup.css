@@ -7,6 +7,8 @@
 .signupContainerGrid__items {
     background-color: var(--colorModal);
     border-radius: 36px;
+    height: 750px;
+    margin-bottom: 20px;
     display: grid;
     grid-template-columns: 472px 1fr 0.35fr;
     grid-template-rows: auto;
@@ -23,7 +25,7 @@
 .signupImage {
     border-top-left-radius: 36px;
     border-bottom-left-radius: 36px;
-    height: 661px;
+    height: 750px;
     width: 500px;
     top: 20%;
     object-fit: cover;
@@ -40,6 +42,13 @@
 .signupForm {
     display: flex;
     flex-direction: column;
+    background-color: var(--colorModal);
+    height: fit-content;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
 }
 
 .signupHeading {
@@ -48,6 +57,11 @@
 
 .signupSubtitle {
     font-size: 22px;
+    color: #6C6A6A;
+}
+
+.textAreaSubtitle {
+    font-size: 18px;
     color: #6C6A6A;
 }
 
@@ -98,4 +112,18 @@
     background-color: var(--colorYellow);
     color: var(--colorText);
     transition: 0.3s ease;
+}
+
+.checkBoxContainer {
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+select {
+    font-size: 22px;
 }

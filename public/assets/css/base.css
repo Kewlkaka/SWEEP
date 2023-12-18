@@ -69,5 +69,15 @@ a:hover {
     transition: 0.4s ease;
 }
 
+.fixed {
+    background-color: red;
+    color: white;
+    text-align: center;
+    align-self: center;
+    font-size: 30px;
+    font-weight: bold;
+    height: 70px;
+}
+
 
 
