@@ -31,6 +31,18 @@ Route::get('/dashboard', function() {
     return view('users.dashboard');
 });
 
+Route::get('/employee-dashboard', function() {
+    return view('employee.dashboard');
+});
+
+Route::get('/sample-dashboard', function() {
+    return view('sampleDashboard');
+});
+
+Route::get('/dashBase', function() {
+    return view('components.dashboard-base');
+});
+
 Route::post('/create-student', [StudentController::class, 'create']);
 Route::post('/create-employee', [EmployeeController::class, 'create']);
 Route::post('/create-organization', [OrganizationController::class, 'create']);

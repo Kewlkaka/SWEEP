@@ -1,0 +1,115 @@
+.navLogoSec {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 0;
+    position: relative;
+}
+
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 60px 5px 20px;
+    background-color: var(--colorBg);
+    color: white;
+}
+
+
+
+#menuIcn {
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+/*Sidebar*/
+.navs {
+    min-height: 91vh;
+    width: 250px;
+    background-color: var(--background-color2);
+    position: absolute;
+    top: 0px;
+    left: 00;
+    box-shadow: 1px 1px 10px rgba(198, 189, 248, 0.825);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 30px 0 20px 10px;
+    z-index: 1000;
+}
+
+.navcontainer {
+    background-color: var(--colorBg);
+    height: calc(100vh - 5px);
+    width: 200px;
+    position: sticky;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all 0.5sec ease-in-out;
+    z-index: 1000;
+}
+
+.nav-upper-options i{
+    font-size: 35px;
+    margin-left: 24px;
+}
+
+.navcontainer::-webkit-scrollbar {
+    display: none;
+}
+
+.navclose {
+    width: 61px;
+}
+
+.nav-option {
+    width: 290px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px 0 20px;
+    gap: 20px;
+    transition: all 0.1s ease-in-out;
+}
+
+.nav-option:hover {
+    border-left: 5px solid #a2a2a2;
+    background-color: #dadada;
+    cursor: pointer;
+}
+
+.iconOpen {
+    font-size: 20px;
+}
+
+.iconClose {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-upper-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.selected {
+    display: flex;
+    background-color: var(--Border-color);
+    color: white;
+}
+
+.selected:hover {
+    border-left: 5px solid #010058af;
+    background-color: var(--Border-color);
+}
+
+.navOptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
