@@ -17,8 +17,8 @@
             <ul class="nav__list">
                 @auth
                     <li class="nav__list-item"><a href="/faq">FAQ</a></li>
+                    @else
                     <li class="nav__list-item"><a href="/logout">Logout</a></li>
-                @else
                     <li class="nav__list-item"><a href="/faq">FAQ</a></li>
                     <li class="nav__list-item"><a href="/signUp">Sign up</a></li>
                     <li class="nav__list-item"><a href="/signIn">Sign in</a></li>

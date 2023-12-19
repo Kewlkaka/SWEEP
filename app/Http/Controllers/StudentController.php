@@ -28,10 +28,15 @@ class StudentController extends Controller
         $formFields['student_program_id'] = intval($formFields['student_program_id']);
         $formFields['student_level_of_education_id'] = intval($formFields['student_level_of_education_id']);
         $formFields['student_country_id'] = intval($formFields['student_country_id']);
-        $formFields['student_password'] = bcrypt($formFields['student_password']);
+        // $formFields['student_password'] = bcrypt($formFields['student_password']);
+        $formFields['student_password'] = $formFields['student_password'];
 
         $student = Student::create($formFields);
 
         return response()->json(['message' => 'Student created successfully', 'data' => $student]);
+    }
+
+    public function dashboard(){
+        return view('users.student-dashboard');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\OrganizationController;
 
 Route::get('/', function () {
     return view('index');
+    session()->flush();
 });
 
 //Render Signup View
@@ -31,6 +33,16 @@ Route::get('/dashboard', function() {
     return view('users.dashboard');
 });
 
+Route::get('student-dashboard',[StudentController::class,'dashboard']);
+
 Route::post('/create-student', [StudentController::class, 'create']);
 Route::post('/create-employee', [EmployeeController::class, 'create']);
 Route::post('/create-organization', [OrganizationController::class, 'create']);
+
+
+Route::get('/login',[LoginController::class,'index']);
+
+Route::middleware(['web'])->group(function () {
+    Route::post('/login', [LoginController::class, 'login']);
+});
+Route::get('/logout',[LoginController::class,'logout']);

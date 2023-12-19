@@ -19,7 +19,8 @@ class OrganizationController extends Controller
                 'org_country_id'=>'required',
             ]);
 
-            $formFields['org_password'] = bcrypt($formFields['org_password']);
+            // $formFields['org_password'] = bcrypt($formFields['org_password']);
+            $formFields['org_password'] = $formFields['org_password'];
             
             $organization = Organization::create($formFields);
 

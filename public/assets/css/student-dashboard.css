@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+
+}
+#cursorpointer{
+    position: absolute;
+    width:20px;
+    height: 20px;
+    background-color: #3E13E3;
+    border-radius: 100%;  
+    transition: all ease;
+}
+
+.studentdashboard{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   
+}
+.studentdashboard .leftdashboard{
+    width: 45%;
+    border-right:#E3E729 5px solid;
+    padding:10px
+}
+.studentdashboard .leftdashboard .top{
+    display: flex;
+justify-content: center;
+}
+
+.studentdashboard .leftdashboard .top .infocontainer{
+    width: 80%;
+    height:20%;
+    background-color: #E3E729;
+    padding:0 20px 5px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+.studentdashboard .leftdashboard .top .infocontainer:hover{
+    box-shadow: -4px -4px 10px 3px black;
+}
+.studentdashboard .leftdashboard .top .infocontainer h1{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    color:#3E13E3
+    
+}
+.studentdashboard .leftdashboard .top .infocontainer img{
+    width: 2.8rem;
+}
+
+.studentdashboard .leftdashboard .top .infocontainer p{
+    font-size: 1.2rem;
+}
+
+.cardarrow{
+  position: absolute;
+  top:40%;
+  left:44%;
+  cursor: pointer;
+}
+
+.leftdashboard .bottom{
+    display: flex;
+    font-size: 0.7rem;
+    gap:5rem;
+    padding-top:3rem;
+
+}
+.leftdashboard .bottom .sminfo{
+    width:18rem;
+    height:5rem;
+    background-color: #E3E729;
+    border-radius:20px;
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    color:#3E13E3
+}
+
+.leftdashboard .bottom .sminfo:hover{
+    box-shadow: -2px -2px 10px 4px black;
+}
+
+.rightdashboard{
+    width:fit-content;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.rightdashboard .avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+}
+.rightdashboard .avatar img{
+    transition: all 0.5s ease ;
+    cursor: pointer;
+}
