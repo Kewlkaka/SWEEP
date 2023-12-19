@@ -27,7 +27,8 @@ class EmployeeController extends Controller
                 'emp_industry_id'=>'required',
             ]);
 
-            $formFields['emp_password'] = bcrypt($formFields['emp_password']);
+            // $formFields['emp_password'] = bcrypt($formFields['emp_password']);
+            $formFields['emp_password'] = $formFields['emp_password'];
             
             $employee = Employee::create($formFields);
 

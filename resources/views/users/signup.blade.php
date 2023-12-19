@@ -6,7 +6,7 @@
             </div>
             <div class="signupFormContainer">
                 <h2 class="signupHeading">Create a new account</h2>
-                <p class="signupSubtitle">Already have an account? <a class="signInLink" href="/signIn">Sign in</a></p>
+                <p class="signupSubtitle">Already have an account? <a class="signInLink" href="/login">Sign in</a></p>
                 <form class="signupForm">
                     @csrf
                     <div id="step1" class="step">
@@ -202,6 +202,7 @@
                     </div>
 
                 </form>
+                <div id="validationError"></div>
             </div>
         </div>
     </div>

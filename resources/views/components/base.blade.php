@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -12,18 +12,22 @@
 </head>
 
 <body>
+    @php
+        $usertype=session()->get('usertype')
+    @endphp
     <header class="header">
         <h1 class="header__heading"><a href="/">SWEEP</a></h1>
         <nav class="nav">
             <ul class="nav__list">
-                @auth
+            
+                @if($usertype)
                     <li class="nav__list-item"><a href="/faq">FAQ</a></li>
                     <li class="nav__list-item"><a href="/logout">Logout</a></li>
                 @else
                     <li class="nav__list-item"><a href="/faq">FAQ</a></li>
                     <li class="nav__list-item"><a href="/signUp">Sign up</a></li>
-                    <li class="nav__list-item"><a href="/signIn">Sign in</a></li>
-                @endauth
+                    <li class="nav__list-item"><a href="/login">Sign in</a></li>
+                @endif
             </ul>
         </nav>
     </header>

@@ -3,7 +3,8 @@
 @import 'employee_dashboard.css';
 @import 'dash-base.css';
 @import 'emp_dashboard_sec2.css';
-
+@import 'login.css';
+@import 'student-dashboard.css';
 
 .main {
     overflow-y: hidden;
@@ -54,4 +55,78 @@
     background-color: var(--colorYellow);
     color: var(--colorText);
     transition: 0.3s ease;
+}
+
+
+/* This is section-2 css */
+
+.section-2{
+    height: 100vh;
+    width: 100%;
+    background-color:#FFE91F;
+    
+}
+
+
+.top{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    font-weight: lighter;
+    gap: 30px;
+    
+}
+
+.block{
+    width: 28%;
+    height:20rem;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+}
+.block p{
+    font-size:1.2rem;
+}
+.block img{
+    width:6rem;
+    height: 6rem;
+    transform: rotate(-100deg);
+    margin-top:-3.5rem;
+
+
+}
+
+.block .stats{
+    border-top:0.3rem solid black;
+   
+    text-align: center;
+    
+}
+
+.block .stats p{
+    font-size: 1.1rem;
+    margin-top:-0.5rem;
+}
+.block h1{
+    color:#0500FF;
+    
+}
+.block .stats h1{
+    font-size: 5rem;
+    color:black;   
+    transition: all 0.3s ease;
+}
+.block .stats h1:hover{
+    color:#0500FF
+
+}
+.block .stats h1:hover span{
+    color:black;
+    
+}
+.block .stats h1 span{
+    color:#0500FF;
+    transition: all 0.3s ease;
 }
