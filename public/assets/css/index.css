@@ -1,16 +1,20 @@
 @import 'base.css';
 @import 'signup.css';
 @import 'login.css';
-@import 'student-dashboard.css';
+
+
 
 .main {
     overflow-y: hidden;
     padding: 65px 0px 0px 80px;
     color: white;
     background-color: var(--colorBg);
+    scroll-behavior: smooth;
+
 }
 .section1 {
     display: flex;
+    padding:10px;
 }
 
 .yellowSpan:hover {
@@ -60,7 +64,7 @@
 .section-2{
     height: 100vh;
     width: 100%;
-    background-color:#FFE91F;
+    background-color:#FFDD32;
     
 }
 
@@ -126,4 +130,81 @@
 .block .stats h1 span{
     color:#0500FF;
     transition: all 0.3s ease;
+}
+
+
+/* This is the styling of the section-3 */
+.maintestimonial{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    align-items: center;
+    padding:10rem;
+    padding-left:5rem;
+    background-color:#fff;
+    background: url('https://images.unsplash.com/photo-1530543787849-128d94430c6b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-position:right;
+    background-size: cover;
+}
+.testimonial-container {
+    max-width: 700px;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #000;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    backdrop-filter:blur(10px) ;
+
+    
+}
+.testimonial-container:hover{
+    transform: scale(1.05);
+}
+.testimonial-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+.testimonial-card:last-child {
+    border-right: none;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    
+    margin-bottom: 5px;
+}
+
+
+.arrow {
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.arrow-left {
+    left:1rem;
+}
+
+.arrow-right {
+    left:38rem;
 }

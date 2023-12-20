@@ -14,7 +14,7 @@
     </div>
 
      <!-- This is seciton 2  -->
-     <div class="section-2">
+     <div class="section-2" id="learnMore">
             <div class="top">
                 <div class="block">
                     <img src="{{ asset('assets/img/section-2-arrow.png') }}" alt="">
@@ -46,4 +46,32 @@
             </div>
     </div>
     <!-- This is the end of section-2 -->
+
+    <!-- This is the start of section-3 -->
+    <div class="maintestimonial">
+        <h1>Testimonials</h1>
+        <div class="testimonial-container">
+            <div class="testimonial-inner">
+                <div class="testimonial-card">
+                    <p class="testimonial-author">Reyan Tariq</p>
+                    <p class="testimonial-text">"Great platform, now I'm able to afford my expenses easily"</p>
+                    <p class="testimonial-position">Student, SZABIST</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-author">Jane Smith</p>
+                    <p class="testimonial-text">"I'm extremely satisfied with the quality of their work. Highly recommended!"</p>
+                    <p class="testimonial-position">CTO, Y-Tech Solutions</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-author">Bilal Ali</p>
+                    <p class="testimonial-text">"Outstanding platform! The talent exceeded our expectations and delivered on time."</p>
+                    <p class="testimonial-position">Marketing Director, Meta Corp</p>
+                </div>
+                </div>
+                <button class="arrow arrow-left" onclick="prevTestimonial()">&#10094;</button>
+                <button class="arrow arrow-right" onclick="nextTestimonial()">&#10095;</button>
+
+                <script src="{{ asset('assets/js/index.js') }}"></script>
+        </div>
+    </div>
 </x-base>

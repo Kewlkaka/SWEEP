@@ -32,3 +32,42 @@ cardArrows.forEach(arrow => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+        
+        var taskHistoryDiv = document.getElementById('taskhistory');
+        var notificationsDiv = document.getElementById('notificationsdiv');
+        var closeButton = document.getElementById('close');
+        var profileLink = document.querySelectorAll('.sidebar a')[0];
+        var taskHistoryLink = document.querySelectorAll('.sidebar a')[1];
+        var notificationsLink = document.querySelectorAll('.sidebar a')[2];
+
+        //show the task history div
+        taskHistoryLink.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            notificationsDiv.style.display='none';
+            taskHistoryDiv.style.display = 'block';
+        });
+        //show the notifications div
+        notificationsLink.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            notificationsDiv.style.display='block';
+            taskHistoryDiv.style.display = 'none';
+        });
+
+        //hides all other section div
+        profileLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            
+            taskHistoryDiv.style.display = 'none';
+            notificationsDiv.style.display='none';
+        });
+        
+        closeButton.addEventListener('click', function () {
+            
+            taskHistoryDiv.style.display = 'none';
+        }); 
+
+    });
+

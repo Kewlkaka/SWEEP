@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sweep_histories', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sweep_assignment_id'); //fk 
-            $table->unsignedBigInteger('emp_id'); //fk 
-            $table->unsignedBigInteger('student_id'); //fk 
-            $table->string('sweep_tokens');
-            
-            
+            $table->unsignedBigInteger('emp_id');
+            $table->unsignedBigInteger('student_id');
+            $table->string('message');
             $table->timestamps();
-            $table->foreign('sweep_assignment_id')->references('id')->on('sweep_assignments');
             $table->foreign('emp_id')->references('id')->on('employees');
             $table->foreign('student_id')->references('id')->on('students');
         });
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sweep_histories');
+        Schema::dropIfExists('notifications');
     }
 };
