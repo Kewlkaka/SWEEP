@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var taskHistoryDiv = document.getElementById('taskhistory');
         var notificationsDiv = document.getElementById('notificationsdiv');
         var closeButton = document.getElementById('close');
+        var close1Button = document.getElementById('close1');
         var profileLink = document.querySelectorAll('.sidebar a')[0];
         var taskHistoryLink = document.querySelectorAll('.sidebar a')[1];
         var notificationsLink = document.querySelectorAll('.sidebar a')[2];
@@ -66,6 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
         closeButton.addEventListener('click', function () {
             
             taskHistoryDiv.style.display = 'none';
+        }); 
+        close1Button.addEventListener('click', function () {
+            
+            notificationsDiv.style.display = 'none';
         }); 
 
     });

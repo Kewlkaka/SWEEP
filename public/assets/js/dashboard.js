@@ -124,6 +124,8 @@ function submitStudentFormData(formData) {
         },
         data: JSON.stringify(formData),
         success: function (data) {
+            
+    
             console.log('Form submitted successfully', data);
             if (data.message === 'Task created successfully') {
                 //alert('Task created successfully');
@@ -199,6 +201,7 @@ function assignTask(studentId) {
         },
         data: JSON.stringify(formData),
         success: function (data) {
+            
             console.log('Assignment successful', data);
             if (data.message === 'Task assigned successfully') {
                 showSuccessMessage();

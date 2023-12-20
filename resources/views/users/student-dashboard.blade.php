@@ -87,8 +87,8 @@
                             <thead>
                                 <tr>
                                     <th>Assignment Id</th>
-                                    <th>Employee Id</th>
-                                    <th>Student Id</th>
+                                    <th>Employee Name</th>
+                                    <th>Student Name</th>
                                     <th>Sweep Tokens</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -99,8 +99,8 @@
                                     @foreach($sweephistories as $sweephistory)
                                         <tr>
                                             <td>{{ $sweephistory['sw_sweep_assignment_id'] }}</td>
-                                            <td>{{ $sweephistory['sw_emp_id'] }}</td>
-                                            <td>{{ $sweephistory['sw_student_id'] }}</td>
+                                            <td>{{ $employeeNames[$sweephistory['sw_emp_id']] }}</td>
+                                            <td>{{ $studentNames[$sweephistory['sw_student_id']] }}</td>
                                             <td>{{ $sweephistory['sw_sweep_tokens'] }}</td> 
                                             <td>{{ $sweephistory['sw_status'] }}</td>
                                             <td>
@@ -124,17 +124,47 @@
             </div>
             
             <div id="notificationsdiv" style="display:none;">
-                <h1>Notifications</h1>    
-                <div class="bubblesdiv">
-                @foreach($notifications as $notification)
-                    <div class="bubble">
-                        <p>Employee-id: {{$notification['emp_id']}}</p>
-                        <p>{{$notification['message']}}</p>
-                    </div>
-                @endforeach
-                
-                </div>
+                <h1>Sweep History List</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Assignment Id</th>
+                            <th>Employee Name</th>
+                            <th>Student Name</th>
+                            <th>Sweep Tokens</th>
+                            <th>Request Status</th> <!-- Add this column -->
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if($sweephistories)
+                            @foreach($sweephistories as $sweephistory)
+                                <tr>
+                                    <td>{{ $sweephistory['sw_sweep_assignment_id'] }}</td>
+                                    <td>{{ $employeeNames[$sweephistory['sw_emp_id']] }}</td>
+                                    <td>{{ $studentNames[$sweephistory['sw_student_id']] }}</td>
+                                    <td>{{ $sweephistory['sw_sweep_tokens'] }}</td> 
+                                    <td>{{ $sweephistory['sw_request_status'] }}</td> <!-- Add this column -->
+                                    <td>
+                                        @if($sweephistory['sw_request_status'] == 'pending')
+                                            <button class="acceptRequest" data-assignment-id="{{ $sweephistory['id'] }}">Accept</button>
+                                            <button class="rejectRequest" data-assignment-id="{{ $sweephistory['id'] }}">Reject</button>
+                                        @else
+                                            Request Already Responded
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="7">No Sweep Histories available</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
+                <button id="close1">Close</button> 
             </div>
+           
         </div>
     </div>
     <script src="{{ asset('assets/js/student-dashboard.js') }}"></script>
@@ -163,7 +193,42 @@
                     })
                     .catch(error => console.error('Error:', error));
                 }
+
+                if (event.target.classList.contains('acceptRequest')) {
+                    const assignmentId = event.target.dataset.assignmentId;
+                    // Send an AJAX request to update the request status to 'accepted'
+                    updateRequestStatus(assignmentId, 'accepted');
+                    alert('status is updated');
+                        window.location.reload();
+                }
+
+                if (event.target.classList.contains('rejectRequest')) {
+                    const assignmentId = event.target.dataset.assignmentId;
+                    // Send an AJAX request to update the request status to 'rejected'
+                    updateRequestStatus(assignmentId, 'declined');
+                    alert('status is updated');
+                        window.location.reload();
+                }
             });
+            function updateRequestStatus(assignmentId, status) {
+                fetch('/update-request-status', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    },
+                    body: JSON.stringify({
+                        assignment_id: assignmentId,
+                        request_status: status,
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);
+                    // You can update the UI or perform any other actions here
+                })
+                .catch(error => console.error('Error:', error));
+            }
         });
     </script>
 </x-base>

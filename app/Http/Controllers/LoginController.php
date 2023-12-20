@@ -62,8 +62,10 @@ class LoginController extends Controller
             $program=Program::where('id',$student['student_program_id'])->first();
             $levelofeducation=LevelsOfEducation::where('id',$student['student_level_of_education_id'])->first();
             $sweephistories = SweepHistory::join('sweep_assignments', 'sweep_histories.sw_sweep_assignment_id', '=', 'sweep_assignments.id')->select('sweep_histories.*', 'sweep_assignments.sw_status')->where('sweep_histories.sw_student_id', $student['id'])->get();
-            $notifications= Notifications::where('student_id',$student['id'])->get();
-
+            $notifications = Notifications::join('employees', 'notifications.emp_id', '=', 'employees.id')->select('notifications.*', 'employees.emp_name')->where('student_id',$student['id'])->get();
+            
+            $employeeNames = Employee::whereIn('id', $sweephistories->pluck('sw_emp_id'))->pluck('emp_name', 'id');
+            $studentNames= Student::whereIn('id', $sweephistories->pluck('sw_student_id'))->pluck('student_name', 'id');
             $request->session()->put('student',$student);
             $request->session()->put('country',$country);
             $request->session()->put('program',$program);
@@ -73,7 +75,7 @@ class LoginController extends Controller
 
             $request->session()->put('usertype','student');
             
-            return view('users.student-dashboard',compact('student','country','program','levelofeducation','sweephistories','notifications'));
+            return view('users.student-dashboard',compact('student','country','program','levelofeducation','sweephistories','notifications','employeeNames','studentNames'));
         }
         else if($organization){
             $country=Country::where('id',$organization['org_country_id'])->first();

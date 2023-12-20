@@ -10,7 +10,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\SweepHistoriesController;
-use App\Http\Controllers\SwAssignmentController;
+use App\Http\Controllers\NotificationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,13 +57,10 @@ Route::post('/create-student', [StudentController::class, 'create']);
 Route::post('/create-employee', [EmployeeController::class, 'create']);
 Route::post('/create-organization', [OrganizationController::class, 'create']);
 
-
 Route::get('/login',[LoginController::class,'index']);
-
-
 Route::post('/login', [LoginController::class, 'login']);
-
 Route::get('/logout',[LoginController::class,'logout']);
-
 Route::post('/mark-as-done', [SweepController::class, 'markAsDone']);
+Route::post('/update-request-status', [SweepHistoriesController::class, 'updateRequestStatus']);
+
 

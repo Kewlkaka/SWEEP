@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SweepHistory;
 use Illuminate\Http\Request;
 use App\Models\SweepAssignment;
+use App\Models\Notifications;
 
 class SweepHistoriesController extends Controller
 {
@@ -34,7 +35,20 @@ class SweepHistoriesController extends Controller
             'sw_emp_id' => $emp_id,
             'sw_student_id' => $student_id,
             'sw_sweep_tokens' => $sweepTokens,
+            'sw_request_status'=>'pending',
         ]);
+        // Extract emp_id, student_id, and message from the request
+
+
+        $message = "Would you please accept our request?";
+
+        // Create a new notification entry
+        Notifications::create([
+            'emp_id' => $emp_id,
+            'student_id' => $student_id,
+            'message' => $message
+        ]);
+
 
         return response()->json(['message' => 'Task assigned successfully']);
     }
@@ -55,4 +69,18 @@ class SweepHistoriesController extends Controller
     
         return response()->json($combinedData);
     }
+
+    public function updateRequestStatus(Request $request)
+    {
+        $assignmentId = $request->input('assignment_id');
+        $requestStatus = $request->input('request_status');
+
+        SweepHistory::where('id', $assignmentId)->update(['sw_request_status' => $requestStatus]);
+        
+        $updatedAssignment = SweepAssignment::find($assignmentId);
+
+        return response()->json(['success' => true, 'assignment' => $updatedAssignment]);
+    }
+    
+        
 }

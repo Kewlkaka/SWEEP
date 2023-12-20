@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('sw_emp_id'); //fk 
             $table->unsignedBigInteger('sw_student_id'); //fk 
             $table->integer('sw_sweep_tokens');
+            $table->enum('sw_request_status',['pending','accepted','declined']);
             
             
             $table->timestamps();

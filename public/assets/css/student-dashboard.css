@@ -179,7 +179,7 @@ body{
     cursor: pointer;
 }
 
-#taskhistory #close{
+#close,#close1{
     width:20%;
     height: 10%;
     font-size: larger;
@@ -201,7 +201,7 @@ table {
     margin:10px;
 }
 
-th, td {
+ th, td {
     border: 1px solid #CAC9FF;
     padding: 8px;
     text-align: left;
@@ -216,7 +216,7 @@ tr:hover {
     background-color: #50520b;
     color:white;
 }
-.markAsDone{
+.markAsDone, .acceptRequest,.rejectRequest{
     padding:5px;
     border:none;
     font-size: 1rem;
@@ -225,17 +225,18 @@ tr:hover {
 
 
 
+
+
 /* Notification div */
 #notificationsdiv{
     position: absolute;
     background-color:white;
     width: 90%;
-    height: 75%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     padding:10px;
     justify-content:center;
-    
     text-align: center;
 }
 
