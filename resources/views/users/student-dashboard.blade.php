@@ -104,11 +104,14 @@
                                             <td>{{ $sweephistory['sw_sweep_tokens'] }}</td> 
                                             <td>{{ $sweephistory['sw_status'] }}</td>
                                             <td>
-                                                @if($sweephistory['sw_status'] != 'complete')
-                                                <button class="markAsDone" data-assignment-id="{{ $sweephistory['sw_sweep_assignment_id'] }}">Mark as Done</button>
-
+                                                @if($sweephistory['sw_request_status']=='pending')
+                                                Please accept or reject the Assignment first
                                                 @else
-                                                    Assignment Completed
+                                                    @if($sweephistory['sw_status'] != 'complete')
+                                                    <button class="markAsDone" data-assignment-id="{{ $sweephistory['sw_sweep_assignment_id'] }}">Mark as Done</button>
+                                                    @else
+                                                        Assignment Completed
+                                                    @endif
                                                 @endif
                                             </td>
                                         </tr>

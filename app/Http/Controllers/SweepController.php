@@ -43,10 +43,18 @@ class SweepController extends Controller
     ->where('student_work_experience', '>', 0)
     ->get();
 
+
+
     $matchingStudentsData = $matchingStudents->map(function ($student) {
         return [
             'id' => $student->id,
             'name' => $student->student_name, 
+            'student_desc'=>$student->student_desc,
+            'student_university_name'=>$student->student_university_name,
+            'student_program_id'=>$student->student_program_id,
+            'student_level_of_education_id'=>$student->student_level_of_education_id,
+            'student_current_year'=>$student->student_current_year,
+            'student_work_experience'=>$student->student_work_experience,
         ];
     });
 

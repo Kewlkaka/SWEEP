@@ -28,6 +28,7 @@ Route::get('/', function () {
     
 });
 
+Route::post('/fetch-student', [StudentController::class, 'fetchStudents']);
 //Render Signup View
 Route::get('/signUp', function() {
     return view('users.signup');
@@ -46,8 +47,7 @@ Route::post('/create-task', [SweepController::class, 'createTask']);
 Route::post('/assign-student', [SweepHistoriesController::class, 'store'])
     ->name('assign.student');
 
-Route::get('/fetch-sweep-histories', [SweepHistoriesController::class, 'fetchHistories'])
-    ->name('fetch.sweep.histories');
+Route::get('/fetch-sweep-histories', [SweepHistoriesController::class, 'fetchHistories'])->name('fetch.sweep.histories');
 
 Route::get('/dashBase', function() {
     return view('components.dashboard-base');

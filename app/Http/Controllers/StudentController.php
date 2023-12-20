@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LevelsOfEducation;
+use App\Models\Program;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -38,5 +40,24 @@ class StudentController extends Controller
 
     public function dashboard(){
         return view('users.student-dashboard');
+    }
+
+    public function fetchStudents(Request $request) {
+        $student_id = $request->input('studentId');
+        $student = Student::where('id', $student_id)->get();
+        
+        $program_id = $student->first()->student_program_id;
+        $program = Program::where('id', $program_id)->get();
+
+        
+        $level_of_education_id =$student->first()->student_level_of_education_id;
+        $levelofeducation = LevelsOfEducation::where('id', $level_of_education_id )->get();
+
+        return response()->json([
+            'message' => 'Student Profile Fetched',
+            'student' => $student,
+            'program' => $program,
+            'levelofeducation'=> $levelofeducation
+        ]);
     }
 }
