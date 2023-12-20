@@ -4,30 +4,32 @@
 }
 
 .container {
+    margin-left: 100px;
     display: grid;
     grid-template-columns:1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 1fr;
+    height: fit-content;
     grid-template-areas: "createAssignment studentsView";
     column-gap: 5%;
     margin-top: 15px;
+}
+
+.studentsView {
+    grid-area: studentsView;
+    align-items: flex-start;
+    width: 500px;
+    min-height: 635px;
+    padding: 30px;
+    border-radius: 26px;
 }
 
 .createAssignment {
     grid-area: createAssignment;
     align-items: flex-start;
     width: 700px;
-    height: 600px;
+    min-height: 635px;
     padding: 30px;
     background-color: var(--colorModal);
-    border-radius: 26px;
-}
-
-.studentsView {
-    align-items: flex-start;
-    grid-area: studentsView;
-    width: 500px;
-    height: 800px;
-    padding: 30px;
     border-radius: 26px;
 }
 
@@ -62,6 +64,20 @@
     padding: 10px;
     font-size: 18px;
     align-self: flex-end;
+    cursor: pointer;
+}
+
+.getMatchingStudentsBtn {
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.studentBox {
     cursor: pointer;
 }
 

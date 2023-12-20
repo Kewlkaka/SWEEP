@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('sweep_histories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sweep_assignment_id'); //fk 
-            $table->unsignedBigInteger('emp_id'); //fk 
-            $table->unsignedBigInteger('student_id'); //fk 
-            $table->string('sweep_tokens');
+            $table->unsignedBigInteger('sw_sweep_assignment_id'); //fk 
+            $table->unsignedBigInteger('sw_emp_id'); //fk 
+            $table->unsignedBigInteger('sw_student_id'); //fk 
+            $table->integer('sw_sweep_tokens');
             
             
             $table->timestamps();
-            $table->foreign('sweep_assignment_id')->references('id')->on('sweep_assignments');
-            $table->foreign('emp_id')->references('id')->on('employees');
-            $table->foreign('student_id')->references('id')->on('students');
+            $table->foreign('sw_sweep_assignment_id')->references('id')->on('sweep_assignments');
+            $table->foreign('sw_emp_id')->references('id')->on('employees');
+            $table->foreign('sw_student_id')->references('id')->on('students');
         });
     }
 

@@ -8,6 +8,9 @@
 
 .header2 {
     display: flex;
+    width: 100%;
+    z-index: 100;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     padding: 10px 60px 5px 20px;
@@ -42,9 +45,10 @@
 
 .navcontainer {
     background-color: var(--colorBg);
+    top: 92px;
     height: calc(100vh - 5px);
     width: 200px;
-    position: sticky;
+    position: fixed;
     overflow-y: scroll;
     overflow-x: hidden;
     transition: all 0.5sec ease-in-out;

@@ -10,6 +10,7 @@ use App\Models\Program;
 use App\Models\LevelsOfEducation;
 use App\Models\Industry;
 use App\Models\Country;
+use App\Models\SweepHistory;
 
 class LoginController extends Controller
 {
@@ -26,12 +27,13 @@ class LoginController extends Controller
             else if(session()->get('usertype')=='organization'){
                 $organization=session()->get('organization');
                 $industry=session()->get('industry');
-                return view('users.dashboard',compact('organization','country','program','industry'));
+                return view('organization.dashboard',compact('organization','country','program','industry'));
             }
             else if(session()->get('usertype')=='employee'){
                 $employee=session()->get('employee');
                 $industry=session()->get('industry');
-                return view('users.dashboard',compact('employee','country','program','industry'));
+                $sweephistories=session()->get('sweephistories');
+                return view('employee.dashboard',compact('employee','country','program','industry', 'sweephistories'));
             }
         }else{
         return view('users.login');  
@@ -75,6 +77,8 @@ class LoginController extends Controller
             return view('users.dashboard',compact('organization','country','program','industry'));
         }
         else if($employee){
+            $sweephistories = SweepHistory::join('sweep_assignments', 'sweep_histories.sw_sweep_assignment_id', '=', 'sweep_assignments.id')->select('sweep_histories.*', 'sweep_assignments.sw_status')->where('sweep_histories.sw_emp_id', $employee['id'])->get();
+            $request->session()->put('sweephistories',$sweephistories);
             $country=Country::where('id',$employee['emp_country_id'])->first();
             $program=Program::where('id',$employee['emp_program_id'])->first();
             $industry=Industry::where('id',$employee['emp_industry_id'])->first();
@@ -83,9 +87,10 @@ class LoginController extends Controller
             $request->session()->put('country',$country);
             $request->session()->put('program',$program);
             $request->session()->put('industry',$industry);
+            $request->session()->put('sweephistories',$sweephistories);
             
             $request->session()->put('usertype','employee');
-            return view('users.dashboard',compact('employee','country','program','industry'));
+            return view('employee.dashboard',compact('employee','country','program','industry','sweephistories'));
         }
         else{
             echo "<script>console.log('{{$password}}');('Credentials do not match ');</script>";

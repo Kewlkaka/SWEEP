@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/bd1de80752.js" crossorigin="anonymous"></script>
     <title>SWEEP</title>
 </head>
@@ -43,10 +44,13 @@
 
                     <div class="nav-option option3" id="option3">
                         <i id="nav-img" class="fa-solid fa-list-check iconOpen"></i>
-                        <h3>Task History</h3>
+                        <div style="margin-left:17px" class="navOptionContainer">
+                            <h3>Sweep</h3>
+                            <h3>History</h3>
+                        </div>
                     </div>
 
-                    <div class=nav-option option-4" id="option4">
+                    <div class="nav-option option-4" id="option4">
                         <i id="nav-img" class="fa-solid fa-magnifying-glass iconOpen"></i>
                         <h3>Find People</h3>
                     </div>
@@ -63,7 +67,7 @@
 
                     <div class="nav-option option7" id="option7">
                         <i id="nav-img" class="fa-solid fa-right-from-bracket iconOpen"></i>
-                        <h3>Logout</h3>
+                        <a href="/logout" style="font-weight: bold; font-size: 19px">Logout</a>
                     </div>
                 </div>
             </nav>
