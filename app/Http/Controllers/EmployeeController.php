@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
 use Exception;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
 use Illuminate\Validation\ValidationException;
 
@@ -28,7 +29,7 @@ class EmployeeController extends Controller
             ]);
 
             // $formFields['emp_password'] = bcrypt($formFields['emp_password']);
-            $formFields['emp_password'] = $formFields['emp_password'];
+            //$formFields['emp_password'] = Hash::make($formFields['emp_password']);
             
             $employee = Employee::create($formFields);
 

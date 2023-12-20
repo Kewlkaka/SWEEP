@@ -1,0 +1,134 @@
+.taskCreator {
+    display: none;
+    padding: 20px 0 10px 10px;
+}
+
+.container {
+    margin-left: 100px;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr;
+    height: fit-content;
+    grid-template-areas: "createAssignment studentsView";
+    column-gap: 5%;
+    margin-top: 15px;
+}
+
+.studentsView {
+    grid-area: studentsView;
+    align-items: flex-start;
+    width: 500px;
+    min-height: 635px;
+    padding: 30px;
+    border-radius: 26px;
+}
+
+.createAssignment {
+    grid-area: createAssignment;
+    align-items: flex-start;
+    width: 700px;
+    min-height: 635px;
+    padding: 30px;
+    background-color: var(--colorModal);
+    border-radius: 26px;
+}
+
+.taskCreatorLabel {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.taskCreatorInput {
+    font-size: 18px;
+    border: none;
+    width: 100%;
+    border:2px solid black ;
+    margin-left: 10px;
+}
+
+.detailInputTextArea {
+    border:2px solid black ;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.formLabelAndInput {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 20px;
+}
+
+.swBtn {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.getMatchingStudentsBtn {
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.studentBox {
+    cursor: pointer;
+}
+
+
+
+/*
+.SW_formContainer {
+    margin: 30px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.formLabelAndInput {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 20px;
+}
+
+.idealFit {
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.swBtn {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/*Student View Box*/
+.studentsView {
+    background-color: var(--colorYellow);
+    color: black;
+    height: 500px;
+}
+
+.studentBox {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: black;
+    color: white;
+}
+
+.assignLink {
+    text-decoration: underline;
+}
+
+.assignLink:hover {
+    color: blue;
+    transition: 0.3s ease;
+}

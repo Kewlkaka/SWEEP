@@ -29,7 +29,7 @@ class StudentController extends Controller
         $formFields['student_level_of_education_id'] = intval($formFields['student_level_of_education_id']);
         $formFields['student_country_id'] = intval($formFields['student_country_id']);
         // $formFields['student_password'] = bcrypt($formFields['student_password']);
-        $formFields['student_password'] = $formFields['student_password'];
+        //$formFields['student_password'] = $formFields['student_password'];
 
         $student = Student::create($formFields);
 

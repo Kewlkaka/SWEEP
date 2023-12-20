@@ -23,13 +23,10 @@ return new class extends Migration
             $table->unsignedBigInteger('sw_student_country_req_id');
             $table->enum('sw_status', ['assigned', 'complete','incomplete']); 
             $table->date('sw_deadline');
-            
             $table->timestamps();
-
             $table->foreign('sw_emp_id')->references('id')->on('employees');
             $table->foreign('sw_student_program_req_id')->references('id')->on('programs');
             $table->foreign('sw_student_country_req_id')->references('id')->on('countries');
-
         });
     }
 
