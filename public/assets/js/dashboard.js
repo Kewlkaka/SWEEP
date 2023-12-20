@@ -140,6 +140,8 @@ function submitStudentFormData(formData) {
     });
 }
 
+
+
 function updateUI(data) {
     const matchingStudents = data.matchingStudents;
     $('.studentBox').remove();
@@ -158,6 +160,7 @@ function updateUI(data) {
         matchingStudents.forEach(student => {
             const studentBox = $(`<div class="studentBox" data-student-id="${student.id}"></div>`);
             const studentName = $(`<h2>${student.name}</h2>`);
+            const plusIcon = $(`<h2><i id="plus" class="fa-solid fa-plus"></i></h2>`);
             studentBox.append(studentName);
             studentBox.append('<i class="fa-solid fa-message"></i>');
             $('.studentsView').append(studentBox);
@@ -175,7 +178,9 @@ function updateUI(data) {
             studentBox.addEventListener('click', function () {
                 const studentId = this.getAttribute('data-student-id');
                 console.log('student ID:', studentId);
-                assignTask(studentId);
+                fetchStudentProfile(studentId);
+                //initializeModalScreen(data);
+                //assignTask(studentId);
             });
         });
     } else {
@@ -184,6 +189,86 @@ function updateUI(data) {
         studentsContainer.appendChild(noMatchMessage);
     }
 }
+
+function fetchStudentProfile(studentId) {
+    const formData = {
+        studentId: studentId,
+    };
+
+    $.ajax({
+        url: '/fetch-student',
+        type: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        },
+        data: JSON.stringify(formData),
+        success: function (data) {
+            console.log('Fetch successful', data);
+            if (data.message === 'Student Profile Fetched') {
+                console.log('SUCCESS');
+                console.log(data.student);
+                initializeModalScreen(data.student, data.program, data.levelofeducation);
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching student profile', error);
+            console.log('Complete error object:', error);
+            if (error.responseJSON) {
+                console.log('Error response:', error.responseJSON);
+            }
+        }
+    });
+}
+
+function initializeModalScreen(student, program, levelofeducation) {
+    const plusIcon = document.getElementById("plus");
+    const modal = document.querySelector(".modal");
+    const closeModal = document.querySelector(".close");
+    const studentProfileContainer = $(".announcementForm");
+    studentProfileContainer.empty();
+    student.forEach(student => {
+        const studentId = $(`<p id="studentId">${student.id}</>`);
+        const studentNameElement =  $(`<h2>${student.student_name}</h2>`);
+        const studentDesc = $(`<p><b>About the student</b>: ${student.student_desc}</>`);
+        const studentUni = $(`<p><b>University Name</b>: ${student.student_university_name}</>`);
+        const studentCurrentYear = $(`<p><b>Current University year</b>: ${student.student_current_year}</>`);
+        const studentWorkExp = $(`<p><b>Prior Work Experience</b>: ${student.student_work_experience} years</>`);
+        const studentProgramId = $(`<p><b>Studying</b>: ${program[0].programs}</>`);
+        const studentLevelOfEdu = $(`<p><b>Pursuing</b>: ${levelofeducation[0].level_of_education}</>`);
+        studentProfileContainer.append(
+            studentId,
+            studentNameElement,
+            studentDesc,
+            studentUni,
+            studentProgramId,
+            studentLevelOfEdu,
+            studentCurrentYear,
+            studentWorkExp
+        );
+    });
+
+    modal.style.display = "flex";
+    
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+}
+
+const sendReqBtn = document.getElementById('sendRequest');
+
+sendReqBtn.addEventListener('click', function(event) {
+    const studentId = $(".announcementForm p#studentId").text();
+    console.log("Student ID:", studentId);
+    assignTask(studentId);
+});
 
 function assignTask(studentId) {
     const formData = {
@@ -377,3 +462,4 @@ const taskViewer = document.querySelector('.taskViewer');
 if (taskViewer) {
     observer.observe(taskViewer);
 }
+

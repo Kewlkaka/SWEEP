@@ -16,5 +16,6 @@ class SweepHistory extends Model
         'sw_emp_id',
         'sw_student_id',
         'sw_sweep_tokens',
+        'sw_request_status'
     ];
 }

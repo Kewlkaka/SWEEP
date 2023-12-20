@@ -34,6 +34,7 @@ class SweepHistoriesController extends Controller
             'sw_emp_id' => $emp_id,
             'sw_student_id' => $student_id,
             'sw_sweep_tokens' => $sweepTokens,
+            'sw_request_status'=>'pending',
         ]);
 
         return response()->json(['message' => 'Task assigned successfully']);

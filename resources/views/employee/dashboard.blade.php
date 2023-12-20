@@ -113,6 +113,15 @@
                 <h1>Step2: Pick a student:</h1>
             </div>
         </div>
+        <div id="announcementModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Student Profile</h2>
+                <div class="announcementForm">
+                </div>
+                <button id="sendRequest" class="sendRequest">Send a request</button>
+            </div>
+        </div>
     </div>
     <div class="taskViewer">
         <div class="flexContainerz">
