@@ -1,0 +1,139 @@
+body{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.login{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+
+.logincard{
+    height: 80%;
+    width: 70%;
+    background-color:#E4E4E4;
+    margin: 0 auto;
+    border-radius:15px;
+    display: flex;
+    flex-direction: row;
+    margin-top:  1.5rem;   
+}
+
+.logincard .leftcard{
+    width:45%;
+    border-top-left-radius:15px;
+    border-bottom-left-radius:15px;
+    background: url('../img/login-img.jpg');
+    background-position: 70%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:10px;
+    font-size: 1rem;
+
+}
+.logincard .leftcard span{
+    color:#cecdfc;
+}
+
+.leftcard button{
+    border-radius:10px;
+    font-size: 1.4rem;
+    width:10rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    outline: none;
+    color:white;
+    background-color: black;
+    padding-left:10px;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+.leftcard button img{
+    width: 2.5rem;
+
+}
+
+
+.rightcard{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.rightcard .formcard{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+    width: 60%;
+}
+.formcard h1{
+    font-size: 3rem;
+}
+
+.formcard p{
+    font-size: 1.05rem;
+    font-weight:lighter;
+}
+
+.rightloginform form{
+    display:flex;
+    flex-direction: column;
+    gap:1.2rem;;
+    margin-top:2rem;
+    font-size:1.3rem;
+    gap:1.5rem;
+
+}
+.rightloginform form input{
+    width:15rem;
+    background-color: transparent;
+    outline: none;
+    border:none;
+    border-bottom: black 2px solid;
+    margin-bottom: 10px;
+    font-size:1.2rem;
+    margin-top:-1rem;
+    
+}
+
+.rightloginform form button{
+    
+    border-radius:10px;
+    font-size: 1.2rem;
+    width:10rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    outline: none;
+    color:white;
+    background-color: black;
+    padding-left:10px;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    
+}
+
+.rightloginform form button:hover, .leftcard button:hover{
+    transform: scale(1.1);
+}
+.rightloginform form .center{
+    margin:0 auto;
+}
+.rightloginform form button img{
+    width: 2.5rem;
+
+}
